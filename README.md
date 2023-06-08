@@ -4,7 +4,7 @@ The code provided analyzes any given document and provide answers to question as
 
 ## To run the file
 Clone the repo on your terimal: `git clone https://github.com/EdmondMbadu/llm.git `
-- run `pip install =r requirements . txt`
+- run `pip install -r requirements.txt`
 - Enter your api key on line 12 in nlp.py
 - Drag the desired pdf to anlyze insde the llm directory( e.g same path as state_of_the_union.pdf)
 - run the code `python3 nlp.py`
