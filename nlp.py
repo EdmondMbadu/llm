@@ -9,7 +9,7 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 import panel as pn
 import tempfile
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "Enter your api Key here"
 
 def qa(file, query, chain_type, k):
     # load document
@@ -31,4 +31,17 @@ def qa(file, query, chain_type, k):
     print(result['result'])
     return result
 
-result = qa("./state_of_the_union.pdf", "What did the president say about mental LGBTQ+",'map_reduce',2)
+
+print("Questions & Answers with LangChain (PDFs)")
+print("============================================")
+print(
+    "You will be prompted the filename you want to inspect (make sure to have a pdf file on the same directory as the code")
+print(
+    "You will then be prompted to enter a question at each iteration from the pdf files inserted. Enter 'done' when done. ")
+filename = input("What is the filename you need to inspect (e.g state_of_the_union.pdf)?: ")
+question = input("Q. What is your question: ")
+while not question.startswith("done"):
+    result = qa("./" + filename, question, "map_reduce", 2)
+    question = input("Q. Another question: ")
+
+print("Finished answering questions for the file" + filename + "...")
